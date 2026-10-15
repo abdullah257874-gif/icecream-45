@@ -1,0 +1,19 @@
+```js name=vite.config.js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+/**
+ * Base path configuration:
+ * - By default the base is '/' so it works in local dev.
+ * - For GitHub Pages, set the BASE_PATH environment variable when building,
+ *   e.g. BASE_PATH="/<repo-name>/" npm run build
+ *
+ * Example in GitHub Actions we set BASE_PATH to '/dreamy-scoops/'.
+ */
+const basePath = process.env.BASE_PATH || '/';
+
+export default defineConfig({
+  base: basePath,
+  plugins: [react()]
+});
+```
